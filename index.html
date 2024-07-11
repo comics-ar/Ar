@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="مرحبا بكم في موقع [كوميكس أر] وجهتك الأولى لعالم الكوميكس المترجمة! نقدم لكم أفضل القصص المصورة بجودة عالية وترجمة احترافية لتستمتع بها سواء كنت من عشاق الكوميديا، الأكشن أو الفنتازيا. ستجد كل ما تبحث عنه.">
+  <meta name="keywords" content="كوميكس, كوميكس مترجم, قصص مصورة, مانجا, كوميكس عربي, قصص مصورة مترجمة, كوميكس أونلاين, كوميكس مجانية, كوميكس رقمية, كوميكس كوميدي, كوميكس أكشن, كوميكس فنتازيا, كوميكس مغامرات, كوميكس دراما, كوميكس رومانسي, كوميكس خيال علمي, كوميكس رعب, كوميكس للأطفال, كوميكس سوبر هيرو, كوميكس دي سي, كوميكس مارفل, كوميكس ياباني, كوميكس أوروبي, كوميكس أمريكي">
+  <title>Comics Ar</title>
+  <style>
+    body {
+      background-color: #000000; /* لون الخلفية الأساسي */
+      color: #ffffff; /* لون النص الأساسي */
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #333333; /* لون خلفية الهيدر */
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .nav-bar {
+      background-color: #1b1a18; /* لون خلفية شريط التنقل */
+      display: none;
+      overflow: hidden;
+      direction: rtl;
+      position: absolute;
+      top: 60px;
+      right: 0; /* تمديد القائمة من اليمين */
+      width: 200px; /* تعيين عرض القائمة */
+      z-index: 1000;
+    }
+
+    .header img {
+      max-width: 95%;
+      height: auto;
+      width: 200px;
+      height: 75px;
+    }
+
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu-icon div {
+      width: 30px;
+      height: 4px;
+      background-color: #ffffff;
+      margin: 5px 0; /* تباعد بين خطوط الزر */
+    }
+
+    .app-section {
+      margin-top: 2cm;
+      display: grid;
+      grid-gap: 0.5cm;
+      padding: 0 1.5cm; /* إضافة مسافة بين جوانب الموقع للصور فقط */
+    }
+
+    @media (max-width: 767px) {
+      .app-section {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .app-section {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .app-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.76);
+      background-color: #dadada;
+      transition: transform 0.3s ease-in-out;
+      margin-bottom: 0.5cm; /* إضافة مسافة بين الصور */
+      position: relative; /* لضمان عرض عنصر "جديد" في الموضع الصحيح */
+    }
+
+    .app-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .app-container:hover {
+      transform: translateY(-5px);
+    }
+
+    .app-details {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .app-details h3 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      color: #333333;
+    }
+
+    .app-details p {
+      margin: 0;
+      color: #777777;
+    }
+
+    .navigation-buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .navigation-buttons button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .navigation-buttons button:hover {
+      background-color: #ffffff;
+    }
+
+    .new-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: red;
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      display: none; /* إخفاء بشكل افتراضي */
+    }
+
+    .search-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: left;
+      background-color: #000000;
+      padding: 15px;
+      z-index: 1000; /* يضمن أن يظهر فوق العناصر الأخرى */
+    }
+
+    .search-bar input[type="text"] {
+      padding: 8px;
+      width: 40%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px; /* زيادة المسافة من الأسفل */
+    }
+
+    .search-bar input[type="submit"] {
+      padding: 10px 20px;
+      border: none;
+      background-color: #333;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 10px; /* زيادة المسافة من الأسفل */
+    }
+  .nav-bar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    white-space: nowrap; /* لمنع النص من الانقسام عند الفاصلة */
+  }
+
+  /* تحديد الأنماط لكل قائمة */
+  .nav-bar a:nth-child(1) {
+    border-bottom: 2px solid #; /* تحديد الحدود للقائمة الأولى */
+  }
+
+  .nav-bar a:nth-child(2) {
+    border-bottom: 2px solid #; /* تحديد الحدود للقائمة الثانية */
+  }
+
+  .nav-bar a:nth-child(3) {
+    border-bottom: 2px solid #; /* تحديد الحدود للقائمة الثالثة */
+  }
+  </style>
+</head>
+<body>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="ابحث باللغة العربية والإنجليزية">
+    <input type="submit" value="ابحث" onclick="searchImages()">
+  </div>
+  <div class="header">
+    <div class="menu-icon" onclick="toggleNav()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <img src="logo.png" alt="شعار الموقع">
+  </div>
+  <div class="nav-bar" id="navBar">
+    <a href=""></a>
+    <a href="index.html">الرئيسية</a>
+    <a href="أدوار النشر.html">أدوار النشر</a>
+    <a href="سياسة الخصوصية.html">سياسة الخصوصية</a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+  </div>
+
+  <h2 align="center">أخر التحديثات</h2>
+  
+  <div class="app-section" id="appSection">
+    <!-- الصور المضافة حديثا -->
+        <div class="app-container" data-publish-time="2024-05-29T18:55:00Z">
+      <a href="Archie1.html">
+        <img src="صور/Archie/1/1.jpg" alt="The Wicked Trinity (2024) , الثالوث الشرير">
+      </a>
+      <div class="new-badge">وان شوت</div>
+      <div class="app-details">
+        <h3>The Wicked Trinity (2024)</h3>
+      </div>
+    </div>
+    
+        <div class="app-container" data-publish-time="2024-05-29T18:55:00Z">
+      <a href="Archie1.html">
+        <img src="صور/Archie/1/1.jpg" alt="The Wicked Trinity (2024) , الثالوث الشرير">
+      </a>
+      <div class="new-badge">وان شوت</div>
+      <div class="app-details">
+        <h3>The Wicked Trinity (2024)</h3>
+      </div>
+    </div>
+        <div class="app-container" data-publish-time="2024-05-29T18:55:00Z">
+      <a href="Archie1.html">
+        <img src="صور/Archie/1/1.jpg" alt="The Wicked Trinity (2024) , الثالوث الشرير">
+      </a>
+      <div class="new-badge">وان شوت</div>
+      <div class="app-details">
+        <h3>The Wicked Trinity (2024)</h3>
+      </div>
+    </div>
+    
+        <div class="app-container" data-publish-time="2024-05-29T18:55:00Z">
+      <a href="Archie1.html">
+        <img src="صور/Archie/1/1.jpg" alt="The Wicked Trinity (2024) , الثالوث الشرير">
+      </a>
+      <div class="new-badge">وان شوت</div>
+      <div class="app-details">
+        <h3>The Wicked Trinity (2024)</h3>
+      </div>
+    </div>
+    
+    <div class="app-container" data-publish-time="2024-05-29T18:55:00Z">
+      <a href="Archie1.html">
+        <img src="صور/Archie/1/1.jpg" alt="The Wicked Trinity (2024) , الثالوث الشرير">
+      </a>
+      <div class="new-badge">وان شوت</div>
+      <div class="app-details">
+        <h3>The Wicked Trinity (2024)</h3>
+      </div>
+    </div>
+
+    <!-- يمكنك إضافة المزيد من الصور هنا -->
+  </div>
+
+  <br>
+  <br>
+  <div class="navigation-buttons">
+    <button id="prevBtn">السابق</button>
+    <button id="nextBtn">التالي</button>
+  </div>
+  <br>
+  <br>
+
+  <script>
+    function toggleNav() {
+      var nav = document.getElementById('navBar');
+      if (nav.style.display === "block") {
+        nav.style.display = "none";
+      } else {
+        nav.style.display = "block";
+      }
+    }
+
+    let currentPage = 1;
+    const appsPerPage = 20;
+    const totalApps = document.querySelectorAll('.app-container').length;
+    const totalPages = Math.ceil(totalApps / appsPerPage);
+
+    document.getElementById('nextBtn').addEventListener('click', function() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updateDisplay();
+      }
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', function() {
+      if (currentPage > 1) {
+        currentPage--;
+        updateDisplay();
+      }
+    });
+
+    function updateDisplay() {
+      const startIndex = (currentPage - 1) * appsPerPage;
+      const endIndex = startIndex + appsPerPage;
+
+      const appContainers = document.querySelectorAll('.app-container');
+
+      appContainers.forEach(function(container, index) {
+        if (index >= startIndex && index < endIndex) {
+          container.style.display = 'flex';
+        } else {
+          container.style.display = 'none';
+        }
+      });
+    }
+
+    updateDisplay();
+
+    function searchImages() {
+      const searchValue = document.getElementById('searchInput').value.trim().toLowerCase();
+      const appContainers = document.querySelectorAll('.app-container');
+
+      appContainers.forEach(function(container) {
+        const altText = container.querySelector('img').getAttribute('alt').toLowerCase();
+        if (altText.includes(searchValue)) {
+          container.style.display = 'flex';
+        } else {
+          container.style.display = 'none';
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const appContainers = document.querySelectorAll('.app-container');
+
+      appContainers.forEach(function(container) {
+        container.querySelector('.new-badge').style.display = 'block'; // عرض كلمة "جديد"
+      });
+    });
+  </script>
+</body>
+</html>
