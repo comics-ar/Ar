@@ -1,320 +1,639 @@
 <!DOCTYPE html>
+
 <html lang="ar">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>أدوار النشر</title>
+
   <style>
+
     body {
+
       background-color: #000000; /* خلفية باللون الأسود */
+
       color: #ffffff; /* النص باللون الأبيض لضمان الوضوح */
+
       font-family: 'Arial', sans-serif;
+
       margin: 0; /* إزالة الهوامش الافتراضية */
+
       padding: 0; /* إزالة الحشوات الافتراضية */
+
     }
+
     .header {
+
       background-color: #333333; /* خلفية الرأس باللون الرمادي الداكن */
+
       padding: 20px;
+
       text-align: center;
+
       position: relative; /* لضمان وضع أيقونة القائمة داخل رأس الصفحة */
+
     }
+
     .header img {
+
       max-width: 100%; /* عرض الصورة بالكامل بما يتناسب مع حجم الحاوية */
+
       height: auto; /* الحفاظ على نسبة الارتفاع إلى العرض للصورة */
+
       width: 200px; /* عرض الصورة */
+
       height: 75px; /* ارتفاع الصورة */
+
     }
+
     .menu-icon {
-      position: absolute;
+
+      position: fixed;
+
       top: 20px;
+
       left: 20px;
+
       cursor: pointer;
+
       display: flex;
+
       flex-direction: column;
+
       justify-content: space-between;
+
       height: 25px;
+
     }
+
     .menu-icon div {
+
       width: 30px;
+
       height: 4px;
+
       background-color: #ffffff;
+
     }
+
     .nav-bar {
+
       display: none; /* إخفاء القائمة افتراضيًا */
+
       background-color: #1b1a18; /* خلفية القائمة باللون البرتقالي */
+
       overflow: hidden;
+
       direction: rtl; /* اتجاه النص من اليمين إلى اليسار */
+
       position: absolute;
+
       top: 60px; /* موضع القائمة أسفل رأس الصفحة */
+
       left: 0;
+
       width: 100%;
+
       z-index: 1000; /* لضمان ظهور القائمة فوق العناصر الأخرى */
+
     }
+
+
+
 
 
     .nav-bar a {
+
       display: block;
+
       color: white;
+
       text-align: center;
+
       padding: 14px 20px;
+
       text-decoration: none;
+
     }
+
     .nav-bar a:hover {
+
       background-color: #ddd;
+
       color: black;
+
     }
+
     .main-content {
+
       margin: 15px;
+
     }
+
     .footer {
+
       background-color: #333333;
+
       padding: 10px;
+
       text-align: center;
+
     }
+
     .search-bar {
+
       text-align: center;
+
       margin-top: 20px;
+
     }
+
     .search-bar input[type="text"] {
+
       padding: 10px;
+
       width: 60%;
+
       border-radius: 5px;
+
       border: 1px solid #ccc;
+
     }
+
     .search-bar input[type="submit"] {
+
       padding: 10px 20px;
+
       border: none;
+
       background-color: #333;
+
       color: white;
+
       border-radius: 5px;
+
       cursor: pointer;
+
     }
+
     .app-section {
+
       margin-top: 2cm; /* مسافة 2 سم بين عنوان الصفحة وصور التطبيقات */
+
     }
+
     .app-container {
+
       display: flex;
+
       flex-direction: column; /* تحويل العرض إلى الشكل العمودي */
+
       align-items: center;
+
       border-radius: 8px;
+
       overflow: hidden;
+
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
       background-color: #ffffff;
+
       transition: transform 0.3s ease-in-out;
+
       margin-top: 1mm;
+
       margin-bottom: 15px; /* إضافة مسافة بين التطبيقات */
+
     }
+
     .app-container:hover {
+
       transform: translateY(-5px);
+
     }
+
     .app-details {
+
       padding: 10px;
+
       text-align: center; /* محاذاة النص إلى الوسط */
+
     }
+
     .app-details h3 {
+
       margin-top: 10px;
+
       margin-bottom: 10px;
+
       color: #333333;
+
     }
+
     .app-details p {
+
       margin: 0;
+
       color: #777777;
+
     }
+
     .app-container img {
+
       max-width: 100%;
+
       height: auto;
+
       border-top-right-radius: 8px;
+
       border-top-left-radius: 8px;
+
     }
+
     .navigation-buttons {
+
       margin-top: 20px;
+
       text-align: center;
+
     }
+
     .navigation-buttons button {
+
       margin: 0 10px;
+
       padding: 10px 20px;
+
       border: none;
+
       border-radius: 4px;
+
       background-color: #ffffff;
+
       color: rgb(0, 0, 0);
+
       cursor: pointer;
+
       transition: background-color 0.3s;
+
     }
+
     .navigation-buttons button:hover {
+
       background-color: #45a049;
+
     }
+
     .app-container img {
+
       width: 400px; /* عرض الصورة بـ 400 بكسل */
+
       height: 150px; /* ارتفاع الصورة بـ 150 بكسل */
+
     }
+
   </style>
+
 </head>
+
 <body>
+
   <div class="header">
+
     <div class="menu-icon" onclick="toggleNav()">
+
       <div></div>
+
       <div></div>
+
       <div></div>
+
     </div>
+
 <br>
-  </div>
-  <div class="nav-bar" id="navBar">
-    <a href="index.html">الرئيسية</a>
-    <a href="أدوار النشر.html">أدوار النشر</a>
-    <a href="سياسة الخصوصية.html">سياسة الخصوصية</a>
-  </div>
-  <div class="main-content">
-    <br>
-    <h3 align="center">أدوار النشر... </h3>
 
   </div>
+
+  <div class="nav-bar" id="navBar">
+
+    <a href="index.html">الرئيسية</a>
+
+    <a href="أدوار النشر.html">أدوار النشر</a>
+
+        <a href="privacy-policy.html">سياسة الخصوصية</a>
+  </div>
+
+  <div class="main-content">
+
+    <br>
+
+    <h2 align="center">أدوار النشر</h2>
+
+
+
+  </div>
+
   <div class="app-section">
+
     <div class="app-container">
+
       <a href="Marvel.html">
+
         <img src="app/Marvel.jpg" alt="Marvel Comics">
+
       </a>
+
       <div class="app-details">
+
         <h3>Marvel Comics</h3>
+
       </div>
+
     </div>
+
     <div class="app-container">
+
       <a href="DC.html">
+
         <img src="app/DC.jpg" alt="DC Comics">
+
       </a>
+
       <div class="app-details">
+
         <h3>DC Comics</h3>
+
       </div>
+
     </div>
+
     <div class="app-container">
+
       <a href="Dark.html">
+
         <img src="app/Dark.jpg" alt="Dark Horse Comics">
+
       </a>
+
       <div class="app-details">
+
         <h3>Dark Horse Comics</h3>
+
       </div>
+
     </div>
+
     <div class="app-container">
+
       <a href="Image.html">
+
         <img src="app/Image.jpg" alt="Image Comics">
+
       </a>
+
       <div class="app-details">
+
         <h3>Image Comics</h3>
+
       </div>
+
     </div>
+
     <div class="app-container">
+
       <a href="Archie.html">
+
         <img src="app/Archie.jpg" alt="Archie Comics">
+
       </a>
+
       <div class="app-details">
+
         <h3>Archie Comics</h3>
+
       </div>
+
     </div>
+
     <div class="app-container">
+
       <a href="Valiant.html">
+
         <img src="app/Valiant.jpg" alt="Valiant Comics">
+
       </a>
+
       <div class="app-details">
+
         <h3>Valiant Comics</h3>
+
       </div>
+
     </div>
+
     <div class="app-container">
+
       <a href="Dynamite.html">
+
         <img src="app/Dynamite.jpg" alt="Dynamite Comics">
+
       </a>
+
       <div class="app-details">
+
         <h3>Dynamite Comics</h3>
+
       </div>
+
     </div>
+
+
 
      <div class="app-container">
+
        <a href="Oni.html">
+
          <img src="app/Oni.jpg" alt="Oni Press Comics">
+
        </a>
+
         <div class="app-details">
+
           <h3>Oni Press Comics</h3>
+
         </div>
+
       </div>
+
     <div class="app-container">
+
       <a href="AD.html">
+
         <img src="app/AD.jpg" alt="2000 AD Comics">
+
       </a>
+
       <div class="app-details">
+
         <h3>2000 AD Comics</h3>
+
       </div>
+
     </div>
+
     <div class="app-container">
+
       <a href="IDW.html">
+
         <img src="app/IDW.jpg" alt="IDW Publishing Comics">
+
       </a>
+
       <div class="app-details">
+
         <h3>IDW Publishing Comics</h3>
+
       </div>
+
     </div>
+
     <div class="app-container">
+
       <a href="Titan.html">
+
         <img src="app/Titan.jpg" alt="Titan Comics">
+
       </a>
+
       <div class="app-details">
+
         <h3>Titan Comics</h3>
+
       </div>
+
     </div>
+
     <div class="app-container">
+
       <a href="Boom.html">
+
         <img src="app/Boom.jpg" alt="Boom! Studios">
+
       </a>
+
       <div class="app-details">
+
         <h3>Boom! Studios</h3>
+
       </div>
+
     </div>
+
+
 
   <br>
 
+
+
   <script>
+
     function toggleNav() {
+
       var nav = document.getElementById('navBar');
+
       if (nav.style.display === "block") {
+
         nav.style.display = "none";
+
       } else {
+
         nav.style.display = "block";
+
       }
+
     }
 
+
+
     let currentPage = 1;
+
     const appsPerPage = 8;
+
     const totalApps = document.querySelectorAll('.app-container').length;
+
     const totalPages = Math.ceil(totalApps / appsPerPage);
 
+
+
     document.getElementById('nextBtn').addEventListener('click', function() {
+
       if (currentPage < totalPages) {
+
         currentPage++;
+
         updateDisplay();
+
       }
+
     });
+
+
 
     document.getElementById('prevBtn').addEventListener('click', function() {
+
       if (currentPage > 1) {
+
         currentPage--;
+
         updateDisplay();
+
       }
+
     });
 
+
+
     function updateDisplay() {
+
       const startIndex = (currentPage - 1) * appsPerPage;
+
       const endIndex = startIndex + appsPerPage;
+
+
 
       const appContainers = document.querySelectorAll('.app-container');
 
+
+
       appContainers.forEach(function(container, index) {
+
         if (index >= startIndex && index < endIndex) {
+
           container.style.display = 'flex';
+
         } else {
+
           container.style.display = 'none';
+
         }
+
       });
+
     }
 
+
+
     updateDisplay();
+
   </script>
+
 </body>
+
 </html>
+
+
 
