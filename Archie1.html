@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The wicked Trinity</title>
+    <title>The Wicked Trinity</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -67,184 +67,195 @@
             background-color: #1f1f1f;
             margin-top: 20px;
         }
-  .btn {
-  --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
-  --border-width: 0.125em;
-  --curve-size: 0.5em;
-  --blur: 30px;
-  --bg: #080312;
-  --color: #afffff;
-  color: var(--color);
-  cursor: pointer;
-  /* use position: relative; so that BG is only for .btn */
-  position: relative;
-  isolation: isolate;
-  display: inline-grid;
-  place-content: center;
-  padding: 0.5em 1.5em;
-  font-size: 17px;
-  border: 0;
-  text-transform: uppercase;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
-  clip-path: polygon(
-    /* Top-left */ 0% var(--curve-size),
-    var(--curve-size) 0,
-    /* top-right */ 100% 0,
-    100% calc(100% - var(--curve-size)),
-    /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
-    /* bottom-right 2 */ 0 100%
-  );
-  transition: color 250ms;
-}
-
-.btn::after,
-.btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-
-.btn::before {
-  background: var(--border-color);
-  background-size: 300% 300%;
-  animation: move-bg7234 5s ease infinite;
-  z-index: -2;
-}
-
-@keyframes move-bg7234 {
-  0% {
-    background-position: 31% 0%;
-  }
-
-  50% {
-    background-position: 70% 100%;
-  }
-
-  100% {
-    background-position: 31% 0%;
-  }
-}
-
-.btn::after {
-  background: var(--bg);
-  z-index: -1;
-  clip-path: polygon(
-    /* Top-left */ var(--border-width)
-      calc(var(--curve-size) + var(--border-width) * 0.5),
-    calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
-    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
-    calc(100% - var(--border-width))
-      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    /* bottom-right 1 */
-      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
-      calc(100% - var(--border-width)),
-    /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
-  );
-  transition: clip-path 500ms;
-}
-
-.btn:where(:hover, :focus)::after {
-  clip-path: polygon(
-    /* Top-left */ calc(100% - var(--border-width))
-      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    calc(100% - var(--border-width)) var(--border-width),
-    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
-    calc(100% - var(--border-width))
-      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    /* bottom-right 1 */
-      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
-      calc(100% - var(--border-width)),
-    /* bottom-right 2 */
-      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
-      calc(100% - var(--border-width))
-  );
-  transition: 200ms;
-}
-
-.btn:where(:hover, :focus) {
-  color: #fff;
-}
-  .boton-elegante {
-  padding: 15px 30px;
-  border: 2px solid #2c2c2c;
-  background-color: #1a1a1a;
-  color: #ffffff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 30px;
-  transition: all 0.4s ease;
-  outline: none;
-  position: relative;
-  overflow: hidden;
-  font-weight: bold;
-}
-
-.boton-elegante::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.25) 0%,
-    rgba(255, 255, 255, 0) 70%
-  );
-  transform: scale(0);
-  transition: transform 0.5s ease;
-}
-
-.boton-elegante:hover::after {
-  transform: scale(4);
-}
-
-.boton-elegante:hover {
-  border-color: #666666;
-  background: #292929;
-}
-
-
+        .btn {
+            --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+            --border-width: 0.125em;
+            --curve-size: 0.5em;
+            --blur: 30px;
+            --bg: #080312;
+            --color: #afffff;
+            color: var(--color);
+            cursor: pointer;
+            /* use position: relative; so that BG is only for .btn */
+            position: relative;
+            isolation: isolate;
+            display: inline-grid;
+            place-content: center;
+            padding: 0.5em 1.5em;
+            font-size: 17px;
+            border: 0;
+            text-transform: uppercase;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+            clip-path: polygon(
+                /* Top-left */ 0% var(--curve-size),
+                var(--curve-size) 0,
+                /* top-right */ 100% 0,
+                100% calc(100% - var(--curve-size)),
+                /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
+                /* bottom-right 2 */ 0 100%
+            );
+            transition: color 250ms;
+        }
+        .btn::after,
+        .btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+        }
+        .btn::before {
+            background: var(--border-color);
+            background-size: 300% 300%;
+            animation: move-bg7234 5s ease infinite;
+            z-index: -2;
+        }
+        @keyframes move-bg7234 {
+            0% {
+                background-position: 31% 0%;
+            }
+            50% {
+                background-position: 70% 100%;
+            }
+            100% {
+                background-position: 31% 0%;
+            }
+        }
+        .btn::after {
+            background: var(--bg);
+            z-index: -1;
+            clip-path: polygon(
+                /* Top-left */ var(--border-width)
+                calc(var(--curve-size) + var(--border-width) * 0.5),
+                calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+                /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+                calc(100% - var(--border-width))
+                calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+                /* bottom-right 1 */
+                calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+                calc(100% - var(--border-width)),
+                /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+            );
+            transition: clip-path 500ms;
+        }
+        .btn:where(:hover, :focus)::after {
+            clip-path: polygon(
+                /* Top-left */ calc(100% - var(--border-width))
+                calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+                calc(100% - var(--border-width)) var(--border-width),
+                /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+                calc(100% - var(--border-width))
+                calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+                /* bottom-right 1 */
+                calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+                calc(100% - var(--border-width)),
+                /* bottom-right 2 */
+                calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+                calc(100% - var(--border-width))
+            );
+            transition: 200ms;
+        }
+        .btn:where(:hover, :focus) {
+            color: #fff;
+        }
+        .boton-elegante {
+            padding: 15px 30px;
+            border: 2px solid #2c2c2c;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.4s ease;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
+        }
+        .boton-elegante::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.25) 0%,
+                rgba(255, 255, 255, 0) 70%
+            );
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+        .boton-elegante:hover::after {
+            transform: scale(4);
+        }
+        .boton-elegante:hover {
+            border-color: #666666;
+            background: #292929;
+        }
+        .image-gallery {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        .image-gallery img {
+            max-width: 100px;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
     </style>
+
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1064110"></script>
+
+
 </head>
 <body>
-  <br>
+    <br>
     <div class="container">
         <div class="movie-header">
-            <img src="صور/Archie/1/1.jpg" alt="Bad Boys: Ride or Die">
+            <img src="صور/Archie/1/1/1.jpg" alt="">
             <div class="movie-info">
                 <h2>The Wicked Trinity</h2>
-                
                 <p>مكتمل</p>
                 <p>2024</p>
                 <p>Comics Arabic</p>
             </div>
         </div>
-      <hr>
-      <br>
+        <hr>
+        <br>
         <div class="rating">
-          
             <a href="Archie1 - the wicked trinity.html" class="btn">القراءة والتحميل</a>
-          <button class="boton-elegante">⭐ 7.6</button>
+            <button class="boton-elegante">⭐ 7.6</button>
         </div>
-      
-      <br>
-      <hr>
-    
+        <br>
+        <hr>
+        <button class="btn" onclick="addToFavorites()">أضف إلى المفضلة</button>
+        <hr>
         <div class="description">
-            <p>عدو سابرينا السحري آمبر نايتستون وصديقيها، جايد كازان وسافير جيل، عازمون على أن يصبحوا أقوى الساحرات في العالم. معزولين عن الكثير من حولهم، شكل الثلاثة جماعة بناءً على احتياجاتهم الفردية للانتقام والحرية الحقيقية. ولكن عندما يكون هناك بعض المعارضة بين الرتب، فإن معشرهم الصغير مهدد بالطمس من الداخل.</p>
+            <p>عدو سابرينا السحري آمبر نايتستون وصديقيها، جايد كازان وسافير جيل، عازمون على أن يصبحوا أقوى الساحرات في العالم.معزولين عن الكثير من حولهم، شكل الثلاثة جماعة بناءً على احتياجاتهم الفردية للانتقام والحرية الحقيقية. ولكن عندما يكون هناك بعض المعارضة بين الرتب، فإن معشرهم الصغير مهدد بالطمس من الداخل.</p>
         </div>
-      
         <div class="tags">
             <span>فنتازيا</span>
         </div>
-      <br>
+        <br>
         <div class="duration">
-          
-            <span>Archie Comics: Horror</span>
+            <span>Arch<span>Archie Comics: Horror</span>
         </div>
-    </div>
-  <hr>
+        <br>
+          <hr>
+
+    <script>
+        function addToFavorites() {
+            const favorite = {
+                title: 'The Wicked Trinity',
+            };
+
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            favorites.push(favorite);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+
+            alert('تمت الإضافة إلى المفضلة!');
+        }
+    </script>
+
 </body>
 </html>
