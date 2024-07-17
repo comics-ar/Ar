@@ -1,416 +1,258 @@
 <!DOCTYPE html>
-
 <html lang="ar">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Oni Press Comics</title>
-
-  <style>
-
-    body {
-
-      background-color: #000000; /* تغيير خلفية الصفحة إلى اللون الأسود */
-
-      font-family: 'Arial', sans-serif;
-
-      text-align: center; /* محاذاة النص إلى الوسط */
-
-      color: white; /* لون النص باللون الأبيض */
-
-    }
-
-
-
-    .header h1 {
-
-      color: #ffffff; /* تغيير لون عنوان الصفحة إلى اللون الأسود الفاتح */
-
-    }
-
-
-
-    .nav-bar {
-
-      display: none;
-
-      flex-direction: column;
-
-      background-color: #ffffff; /* خلفية القائمة باللون البرتقالي */
-
-      position: absolute;
-
-      top: 60px;
-
-      left: 0;
-
-      width: 100%;
-
-      direction: rtl; /* اتجاه النص من اليمين إلى اليسار */
-
-      z-index: 1000;
-
-    }
-
-    .nav-bar a {
-
-      display: block;
-
-      color: rgb(0, 0, 0);
-
-      text-align: center;
-
-      padding: 14px 20px;
-
-      text-decoration: none;
-
-    }
-
-    .nav-bar a:hover {
-
-      background-color: #ddd;
-
-      color: black;
-
-    }
-
-
-
-    .menu-icon {
-
-      display: flex;
-
-      position: fixed;
-      flex-direction: column;
-
-      cursor: pointer;
-
-      padding: 10px;
-
-      position: absolute;
-
-      top: 20px;
-
-      left: 20px;
-
-    }
-
-    .menu-icon div {
-
-      width: 30px;
-
-      height: 3px;
-
-      background-color: white;
-
-      margin: 5px 0;
-
-    }
-
-
-
-    .main-content {
-
-      margin: 15px;
-
-    }
-
-
-
-    .header {
-
-      margin-top: 20px;
-
-    }
-
-    .header img {
-
-      width: 200px; /* عرض الصورة بـ 200 بكسل */
-
-      height: 75px; /* ارتفاع الصورة بـ 75 بكسل */
-
-    }
-
-    .header h2 {
-
-      color: #ffffff;
-
-      margin-top: 10px;
-
-      margin-bottom: 2cm; /* إضافة مسافة 2 سم بين اسم الصفحة والصور */
-
-    }
-
-    .gallery {
-
-      display: flex;
-
-      flex-wrap: wrap;
-
-      justify-content: center;
-
-      margin-top: 20px;
-
-    }
-
-    .gallery .image-container {
-
-      flex: 1 1 30%; /* عرض مرن بنسبة 30% */
-
-      max-width: 30%;
-
-      padding: 10px;
-
-      box-sizing: border-box;
-
-    }
-
-    .gallery .image-container img {
-
-      width: 100%;
-
-      height: auto;
-
-      border-radius: 8px;
-
-    }
-
-    .navigation-buttons {
-
-      margin-top: 20px;
-
-      text-align: center;
-
-    }
-
-    .navigation-buttons button {
-
-      margin: 0 10px;
-
-      padding: 10px 20px;
-
-      border: none;
-
-      border-radius: 4px;
-
-      background-color: #ffffff;
-
-      color: rgb(0, 0, 0);
-
-      cursor: pointer;
-
-      transition: background-color 0.3s;
-
-    }
-
-    .navigation-buttons button:hover {
-
-      background-color: #ffffff;
-
-    }
-
-    .footer {
-
-      background-color: #f1f1f1;
-
-      padding: 10px;
-
-      text-align: center;
-
-      margin-top: 20px;
-
-      color: black; /* لون النص باللون الأسود */
-
-    }
-
-    .image-container img {
-
-      width: 100%;
-
-      height: auto;
-
-      border-radius: 8px;
-
-      transition: transform 0.3s ease; /* تأثير التحويل على الصورة */
-
-    }
-
-    .image-container:hover img {
-
-      transform: scale(1.05); /* تحريك الصورة عند تحويل الماوس عليها */
-
-    }
-
-  </style>
-
-
-
-
-    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1064110"></script>
-
-</head>
-
-<body>
-
-  <div class="header">
-
-    <div class="menu-icon" onclick="toggleNav()">
-
-      <div></div>
-
-      <div></div>
-
-      <div></div>
-
-    </div>
-
-    <br>
-
-    <br>
-
-  </div>
-
-  <br>
-
-  <hr>
-
-  <hr>
-
-
-
-  <div class="nav-bar" id="navBar">
-
-    <a href="index.html">الرئيسية</a>
-
-    <a href="أدوار النشر.html">أدوار النشر</a>
-
-    <a href="سياسة الخصوصية.html">سياسة الخصوصية</a>
-
-
-
-  </div>
-
-  <br>
-
-  <div class="header">
-
-    <img src="app/Oni.jpg" alt="أوني بريس كوميكس">
-
-    <h2>Oni Press Comics</h2>
-
-  </div>
-
-  <div class="gallery">
-
-    <!-- الصور -->
-
-
-
-    
-
-
-
-  </div>
-
-
-
-  <script>
-
-    let currentPage = 1;
-
-    const appsPerPage = 15;
-
-    const totalApps = document.querySelectorAll('.gallery .image-container').length;
-
-    const totalPages = Math.ceil(totalApps / appsPerPage);
-
-
-
-    document.getElementById('nextBtn').addEventListener('click', function() {
-
-      if (currentPage < totalPages) {
-
-        currentPage++;
-
-        updateDisplay();
-
-      }
-
-    });
-
-
-
-    document.getElementById('prevBtn').addEventListener('click', function() {
-
-      if (currentPage > 1) {
-
-        currentPage--;
-
-        updateDisplay();
-
-      }
-
-    });
-
-
-
-    function updateDisplay() {
-
-      const startIndex = (currentPage - 1) * appsPerPage;
-
-      const endIndex = startIndex + appsPerPage;
-
-
-
-      const appContainers = document.querySelectorAll('.gallery .image-container');
-
-
-
-      appContainers.forEach(function(container, index) {
-
-        if (index >= startIndex && index < endIndex) {
-
-          container.style.display = 'block';
-
-        } else {
-
-          container.style.display = 'none';
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wicked Trinity</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff; /* تغيير الخلفية إلى اللون الأبيض */
+            color: black; /* تغيير لون النصوص إلى الأسود */
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .movie-header {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* توسيط المحتوى في الوسط */
+            flex-direction: row-reverse; /* تغيير اتجاه العرض ليكون من اليمين إلى اليسار */
+        }
+        .movie-header img {
+            max-width: 100px;
+            border-radius: 10px;
+        }
+        .movie-info {
+            flex: 1;
+            padding: 0 10px;
+            text-align: left; /* تحديد محاذاة النص إلى اليسار */
+        }
+        .movie-info h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .movie-info p {
+            margin: 5px 0;
+        }
+        .description {
+            margin-top: 20px;
+            text-align: right; /* تحديد محاذاة النص إلى اليمين */
+        }
+                .tags, .duration {
+            margin-top: 10px;
+        }
+        .tags span, .duration span {
+            background-color: #FF0000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        .duration {
+            margin-top: 10px;
+            text-align: right; /* تحديد محاذاة النص إلى اليمين */
+        }
+        .duration span {
+            background-color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+            margin-top: 20px;
+        }
+        #fav-button {
+            background-color: transparent; /* لون خلفية زر المفضلة مشفرة */
+            color: black; /* لون نص زر المفضلة */
+            border: 2px solid black; /* إطار أسود مع سمك 2 بكسل */
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
-      });
+        #fav-button:hover {
+            background-color: #f0f0f0; /* لون خلفية زر المفضلة عند التمرير عليه */
+        }
 
-    }
+        #rating {
+            background-color: #f0f0f0; /* لون خلفية زر التقييم */
+            color: black; /* لون نص زر التقييم */
+            border: 2px solid black; /* إطار أسود مع سمك 2 بكسل */
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
 
+        #rating:hover {
+            background-color: #e0e0e0; /* لون خلفية زر التقييم عند التمرير عليه */
+        }
+    .app-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #1b1a18;
+    margin: 10px 0;
+    padding: 20px;
+    width: 90%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.76);
+  }
+  .app-details {
+    margin-top: 10px;
+    text-align: center;
+  }
+  .app-details h3 {
+    margin: 10px 0;
+    color: #ffffff;
+  }
+  .app-details p {
+    margin: 5px 0;
+  }
+.app-details a {
+  color: #1e90ff;
+  text-decoration: none;
+  margin: 0 10px;
+  background-color: #ffffff; /* خلفية بيضاء للأزرار */
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+}
 
+.app-details a:hover {
+  text-decoration: underline;
+  background-color: #f0f0f0; /* لون خلفية زر التحميل عند التمرير عليه */
+}
 
-    function toggleNav() {
+.app-details button {
+  background-color: transparent;
+  border: 1px solid #1e90ff; /* إطار خفيف للأزرار */
+  color: #1e90ff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 10px;
+}
 
-      const navBar = document.getElementById('navBar');
+.app-details button:hover {
+  background-color: #1e90ff;
+  color: #ffffff;
+}
+  button {
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #ffffff80;
+    text-shadow: none;
+    background: transparent;
+    cursor: pointer;
+    box-shadow: transparent;
+    border: 1px solid #ffffff80;
+    transition: 0.5s ease;
+    user-select: none;
+  }
+  button:hover,
+  button:focus {
+    color: #ffffff;
+    background: #008cff;
+    border: 1px solid #008cff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+    box-shadow: 0 0 5px #008cff, 0 0 20px #008cff, 0 0 50px #008cff,
+      0 0 100px #008cff;
+  }
+    </style>
+</head>
+<body>
+    <br>
+    <div class="container">
+        <div class="movie-header">
+            <a href="judjf.html">
+                <img src="1/2.jpg" alt="">
+            </a>
+            <div class="movie-info">
+                <h2>W E</h2>
+                <p>مكتمل • 2024</p>
+                <p>فيلم • +18</p>
+                <p>أنميشن</p>
+            </div>
+        </div>
+        <hr>
+        <button id="fav-button">أضف إلى المفضلة</button>
+      <br>
+      <br>
+        <hr>
+        <div class="description">
+            <p>عدو سابرينا السحري آمبر نايتستون وصديقيها، جايد كازان وسافير جيل، عازمون على أن يصبحوا أقوى الساحرات في العالم. معزولين عن الكثير من حولهم، شكل الثلاثة جماعة بناءً على احتياجاتهم الفردية للانتقام والحرية الحقيقية. ولكن عندما يكون هناك بعض المعارضة بين الرتب، فإن معشرهم الصغير مهدد بالطمس من الداخل.</p>
+                  <div class="tags">
+            <span>فنتازيا</span>
+                                <span>فنتازيا</span>
+        </div>
+        </div>
+        <hr>
+      
+      <div class="app-section" id="appSection">
+  <!-- الحلقات المتاحة -->
 
-      if (navBar.style.display === 'block') {
+<div class="app-details">
+  <h3>العدد #1 والأخير</h3>
+  <p>
+    <a href="https://pullzonetaher.b-cdn.net/Movies/WALL·E%202008/WALL·E%202008%201080p.mp4">
+      <button>المشاهدة المباشرة</button>
+    </a>
+    |
+    <a href="intent://pullzonetaher.b-cdn.net/Movies/WALL·E%202008/WALL·E%202008%201080p.mp4#Intent;package=com.admpro.bmplayer.splayer;end">
+      <button>الفتح عبر تطبيق AdM</button>
+    </a>
+  </p>
+</div>
+      
+      
+      
+    </div>
+    <script>
+        document.getElementById('fav-button').addEventListener('click', function() {
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            let card = {
+                title: document.querySelector('.movie-info h2').innerText,
+                year: document.querySelector('.movie-info p:nth-child(2)').innerText,
+                type: document.querySelector('.movie-info p:nth-child(3)').innerText,
+                genres: document.querySelector('.movie-info p:nth-child(4)').innerText,
+                img: document.querySelector('.movie-header img').src,
+                description: document.querySelector('.description p').innerText
+            };
+            favorites.push(card);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            alert('تمت الإضافة إلى المفضلة!');
+        });
 
-        navBar.style.display = 'none';
-
-      } else {
-
-        navBar.style.display = 'block';
-
-      }
-
-    }
-
-
-
-    updateDisplay();
-
-  </script>
-
+        // أضف معالجة لزر التقييم هنا إذا كان هناك عملية تفاعلية معه
+    </script>
 </body>
-
-</html>
-
+  </html>
